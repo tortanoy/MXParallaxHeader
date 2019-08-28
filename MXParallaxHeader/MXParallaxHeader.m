@@ -209,19 +209,13 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
 #pragma mark Private Methods
 
 - (void)layoutContentView {
-    CGFloat minimumHeight = MIN(self.minimumHeight, self.height);
-    CGFloat relativeYOffset = self.scrollView.contentOffset.y + self.scrollView.contentInset.top - self.height;
-    CGFloat relativeHeight  = -relativeYOffset;
-    
     CGRect frame = (CGRect){
         .origin.x       = 0,
-        .origin.y       = relativeYOffset,
+        .origin.y       = -self.height,
         .size.width     = self.scrollView.frame.size.width,
-        .size.height    = MAX(relativeHeight, minimumHeight)
+        .size.height    = self.height
     };
-    
     self.contentView.frame = frame;
-    
     CGFloat div = self.height - self.minimumHeight;
     self.progress = (self.contentView.frame.size.height - self.minimumHeight) / (div? : self.height);
 }

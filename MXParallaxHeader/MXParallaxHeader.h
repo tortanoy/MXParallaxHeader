@@ -91,6 +91,12 @@ typedef NS_ENUM(NSInteger, MXParallaxHeaderMode) {
  The parallax header progress value.
  */
 @property (nonatomic,readonly) CGFloat progress;
+    
+/**
+ The parallax header y offset value.
+ */
+@property (nonatomic,readonly) CGFloat yOffset;
+
 
 /**
  Loads a `view` from the nib file in the specified bundle.

@@ -126,6 +126,16 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
         }
     }
 }
+    
+- (void)setYOffset:(CGFloat)yOffset {
+    if(_yOffset != yOffset) {
+        _yOffset = yOffset;
+        
+        if ([self.delegate respondsToSelector:@selector(parallaxHeaderDidScroll:)]) {
+            [self.delegate parallaxHeaderDidScroll:self];
+        }
+    }
+}
 
 - (void)loadWithNibName:(NSString *)name bundle:(nullable NSBundle *)bundleOrNil options:(nullable NSDictionary<UINibOptionsKey, id> *)optionsOrNil {
     UINib *nib = [UINib nibWithNibName:name bundle:bundleOrNil];
@@ -209,6 +219,7 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
 #pragma mark Private Methods
 
 - (void)layoutContentView {
+    CGFloat relativeYOffset = self.scrollView.contentOffset.y;
     CGRect frame = (CGRect){
         .origin.x       = 0,
         .origin.y       = -self.height,
@@ -218,6 +229,7 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
     self.contentView.frame = frame;
     CGFloat div = self.height - self.minimumHeight;
     self.progress = (self.contentView.frame.size.height - self.minimumHeight) / (div? : self.height);
+    self.yOffset = relativeYOffset;
 }
 
 - (void)adjustScrollViewTopInset:(CGFloat)top {

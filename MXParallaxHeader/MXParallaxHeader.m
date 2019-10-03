@@ -114,6 +114,7 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
         //Layout content view
         [self layoutContentView];
         _isObserving = YES;
+        _scrollView.delaysContentTouches = YES;
     }
 }
 
@@ -274,7 +275,6 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
 
 - (void)setParallaxHeader:(MXParallaxHeader *)parallaxHeader {
     parallaxHeader.scrollView = self;
-    parallaxHeader.scrollView.delaysContentTouches = YES;
     objc_setAssociatedObject(self, @selector(parallaxHeader), parallaxHeader, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

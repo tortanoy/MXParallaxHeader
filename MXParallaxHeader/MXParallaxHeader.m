@@ -114,7 +114,6 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
         //Layout content view
         [self layoutContentView];
         _isObserving = YES;
-        _scrollView.delaysContentTouches = YES;
     }
 }
 

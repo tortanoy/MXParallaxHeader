@@ -24,7 +24,7 @@
 #import "MXWebViewController.h"
 
 @interface MXWebViewController ()
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+//@property (weak, nonatomic) IBOutlet UIWebView *webView;
 @end
 
 @implementation MXWebViewController
@@ -32,8 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://dribbble.com/search?q=spaceship"]];
-    [self.webView loadRequest:request];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://dribbble.com/search?q=spaceship"]];
+//    [self.webView loadRequest:request];
 }
 
 @end

@@ -191,9 +191,6 @@
                         <viewLayoutGuide key="safeArea" id="0bV-Dh-ljK"/>
                     </view>
                     <navigationItem key="navigationItem" id="c1x-8E-IRo"/>
-                    <connections>
-                        <outlet property="webView" destination="HVV-Ov-vkC" id="gIg-Yr-Zfn"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zKB-N1-q2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
